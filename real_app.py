@@ -36,7 +36,7 @@ import speech_recognition as sr
 def user_input():
     r = sr.Recognizer()
     with sr.Microphone() as source:
-        audio = r.listen(source, phrase_time_limit=15)
+        audio = r.listen(source,phrase_time_limit= 30)
         try:
             text = r.recognize_google(audio)
             text = re.sub(r'f[*]+','fuck',text)
@@ -176,7 +176,12 @@ if st.button("Start recording"):
     df['Hate score by XGBOOST'] = df['Hate score by XGBOOST'].apply(lambda x : round(x,2))
     df['Hate score by Network Neural'] = df['Sentences'].apply(pred_prob_NN)
     df['Hate score by Network Neural'] = df['Hate score by Network Neural'].apply(lambda x : round(x,2))
-    dict_means = [{col:int(100*df[col].mean()+0.5)/100 for col in df.columns.tolist()[-3:]}]
+    try:
+     dict_means = {col:int(100*df[col].mean()+0.5)/100 for col in df.columns.tolist()[-3:]}
+    except ValueError:
+     dict_means = {col:np.nan for col in df.columns.tolist()[-3:]}    
+    dict_means['Sentences'] = "Average value"
+    dict_means = [dict_means]
     df = pd.concat([df,pd.DataFrame(dict_means)],axis = 0)
     try:
      score_hate_mean = int(100*df.iloc[-1,-3:].mean()+0.5)/100
