@@ -1,3 +1,3 @@
 regex
-pyaudio>=0.2.11
+pyaudio
 SpeechRecognition>=3.8.1
