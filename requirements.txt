@@ -1,4 +1,3 @@
 regex
-python3
 pyaudio
 SpeechRecognition>=3.8.1
