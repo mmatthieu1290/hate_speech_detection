@@ -1,3 +1,2 @@
 regex
-PyAudio
 SpeechRecognition>=3.8.1
