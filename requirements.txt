@@ -1,4 +1,4 @@
 regex
-pip install pipwin
-pipwin install pyaudio
+pipwin
+pyaudio
 SpeechRecognition>=3.8.1
