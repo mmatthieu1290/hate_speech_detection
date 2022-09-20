@@ -31,7 +31,7 @@ st.markdown("* If you want to see a demo, click 'Demo'.")
 st.subheader('Detection violent speeches')
 
 
-import speech_recognition as sr
+""" import speech_recognition as sr
 
 def user_input():
     r = sr.Recognizer()
@@ -213,3 +213,4 @@ if st.button("Start recording"):
 
 
 
+ """
