@@ -1,3 +1,4 @@
 regex
 pyaudio
+io
 SpeechRecognition>=3.8.1
